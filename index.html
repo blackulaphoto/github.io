@@ -3,72 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mistral AI Chat</title>
+    <title>Aminos Bot Embed</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             display: flex;
-            flex-direction: column;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
         }
         #chat-container {
-            width: 90%;
-            max-width: 600px;
-            height: 500px;
+            width: 100%;
+            max-width: 500px;
+            height: 600px;
             background: white;
-            padding: 20px;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-        }
-        #user-input {
-            width: calc(100% - 20px);
-            padding: 10px;
-            margin-top: 10px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
+            overflow: hidden;
         }
     </style>
-    <script src="config.js"></script>
 </head>
 <body>
-    <h2>Mistral AI Chat</h2>
-    <div id="chat-container"></div>
-    <input type="text" id="user-input" placeholder="Type your message..." onkeypress="handleKeyPress(event)">
-    
-    <script>
-        async function sendMessage() {
-            const userInput = document.getElementById("user-input").value;
-            if (!userInput) return;
-            
-            const chatContainer = document.getElementById("chat-container");
-            chatContainer.innerHTML += `<p><strong>You:</strong> ${userInput}</p>`;
-            document.getElementById("user-input").value = "";
-            
-            const response = await fetch("https://api.mistral.ai/v1/chat/completions", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${API_KEY}`
-                },
-                body: JSON.stringify({
-                    model: "mistral-tiny",
-                    messages: [{role: "user", content: userInput}]
-                })
-            });
-            
-            const data = await response.json();
-            chatContainer.innerHTML += `<p><strong>Mistral:</strong> ${data.choices[0].message.content}</p>`;
-        }
-        
-        function handleKeyPress(event) {
-            if (event.key === "Enter") {
-                sendMessage();
-            }
-        }
-    </script>
+    <div id="chat-container">
+        <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id=46099></script>
+    </div>
 </body>
 </html>
