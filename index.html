@@ -3,29 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aminos Bot Embed</title>
+    <title>Embedded ChatGPT</title>
     <style>
         body {
+            margin: 0;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
             background-color: #f4f4f4;
         }
-        #chat-container {
+        iframe {
             width: 100%;
-            max-width: 500px;
-            height: 600px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            overflow: hidden;
+            height: 100vh;
+            border: none;
         }
     </style>
 </head>
 <body>
-    <div id="chat-container">
-        <script src="https://app.aminos.ai/js/chat_plugin.js" data-bot-id="42650"></script>
-    </div>
+    <iframe src="https://chat.openai.com" allow="clipboard-write; fullscreen"></iframe>
 </body>
 </html>
